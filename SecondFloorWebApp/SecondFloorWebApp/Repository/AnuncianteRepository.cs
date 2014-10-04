@@ -10,11 +10,16 @@ namespace SecondFloorWebApp.Repository
 {
     public class AnuncianteRepository : Repository<Anunciante, int> , IAnuncianteRepository
     {
+        private SecondFloorContext _context { get; set; }
+
         public AnuncianteRepository(SecondFloorContext context) : base(context)
         {
             this._context = context;
         }
-
-        private SecondFloorContext _context { get; set; }
+        
+        public Anunciante BuscaRazaoSocial(string razaoSocial)
+        {
+            return _context.Anunciantes.Find(razaoSocial);
+        }
     }
 }

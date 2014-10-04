@@ -9,6 +9,8 @@ namespace SecondFloorWebApp.IRepository
 {
     public interface IProdutoRepository : IRepository<Produto,int>
     {
-
+        Produto FindByName(string nomeProduto);
+        Produto FindByRef(string codigoProduto);
+        ICollection<Produto> ListarProdutos(int codigoAnunciante);
     }
 }

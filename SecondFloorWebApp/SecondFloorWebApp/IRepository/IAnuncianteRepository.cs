@@ -9,6 +9,6 @@ namespace SecondFloorWebApp.IRepository
 {
     public interface IAnuncianteRepository : IRepository<Anunciante, int>
     {
-
+        Anunciante BuscaRazaoSocial(string razaoSocial);
     }
 }

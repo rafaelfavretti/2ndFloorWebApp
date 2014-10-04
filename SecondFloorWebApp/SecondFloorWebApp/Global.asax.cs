@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Optimization;
 using System.Web.Routing;
 
 namespace SecondFloorWebApp
@@ -13,12 +14,12 @@ namespace SecondFloorWebApp
     {
         protected void Application_Start()
         {
-            Database.SetInitializer(new CreateDatabaseIfNotExists<SecondFloorContext>());
+            Database.SetInitializer(new DropCreateDatabaseAlways<SecondFloorContext>());
 
             AreaRegistration.RegisterAllAreas();
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-
-            
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
     }
 }

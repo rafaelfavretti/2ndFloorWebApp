@@ -1,0 +1,56 @@
+﻿@model SecondFloorWebApp.Models.Anunciante
+
+
+@{
+    ViewBag.Title = "Cadastro Anunciante";
+}
+
+<h2>Cadastro Anunciante</h2>
+<div class="container">
+    @using (@Html.BeginForm())
+    {
+        <div class="form-horizontal">
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.LabelFor(a => a.Nome)
+                        @Html.TextBoxFor(a => a.Nome, new { @class = "form-control", placeholder = "Digite o nome" })
+                    </div>
+                    <div class="col-md-3">
+                        @Html.LabelFor(a => a.Sobrenome)
+                        @Html.TextBoxFor(a => a.Sobrenome, new { @class = "form-control", placeholder = "Digite o Sobrenome" })
+                    </div>
+                    <div class="col-md-3">
+                        @Html.LabelFor(a => a.Email)
+                        @Html.TextBoxFor(a => a.Email, new { @class = "form-control", placeholder = "Digite o e-mail" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.LabelFor(a => a.TipoUsuario)
+                        @Html.DropDownListFor(a => a.TipoUsuario, new List<SelectListItem>
+                    {
+                        new SelectListItem {Text="Selecione o tipo", Value ="1", Selected=true},
+                        new SelectListItem {Text="Anunciante", Value ="2"},
+                        new SelectListItem {Text="Usuario", Value ="3"}
+                    }, htmlAttributes: new { @class = "form-control selectpicker" })
+                    </div>
+                    <div class="col-md-3">
+                        @Html.LabelFor(a => a.Cnpj)
+                        @Html.TextBoxFor(a => a.Cnpj, new { @class = "form-control", placeholder = "Digite o CNPJ" })
+                    </div>
+                    <div class="col-md-3">
+                        @Html.LabelFor(a => a.RazaoSocial)
+                        @Html.TextBoxFor(a => a.RazaoSocial, new { @class = "form-control", placeholder = "Digite a Razão Social" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </div>
+        </div>
+
+    }
+</div>

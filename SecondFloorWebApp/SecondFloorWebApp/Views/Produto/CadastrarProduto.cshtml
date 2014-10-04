@@ -1,0 +1,43 @@
+﻿@model SecondFloorWebApp.Models.Produto
+@{
+    ViewBag.Title = "CadastrarProduto";
+}
+
+<h2>CadastrarProduto</h2>
+
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        <div class="form-horizontal">
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.LabelFor(p => p.RefProduto)
+                        @Html.TextBoxFor(p => p.RefProduto, new { @class = "form-control", placeholder = "Digite sua referência para o produto" })
+                    </div>
+                    <div class="col-md-3">
+                        @Html.LabelFor(p => p.NomeProduto)
+                        @Html.TextBoxFor(p => p.NomeProduto, new { @class = "form-control", placeholder = "Digite o nome do produto" })
+                    </div>
+                    <div class="col-md-3">
+                        @Html.LabelFor(p => p.Fabricante)
+                        @Html.TextBoxFor(p => p.Fabricante, new { @class = "form-control", placeholder = "Digite o fabricante" })
+                    </div>
+                    <div class="col-md-3">
+                        @Html.LabelFor(p => p.ValorProduto)
+                        @Html.TextBoxFor(p => p.ValorProduto, new { @class = "form-control", placeholder = "Digite o valor" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-lg-10">
+                    @Html.LabelFor(p => p.Descricao)
+                    @Html.TextAreaFor(p => p.Descricao, new { @class = "form-control", placeholder = "Digite uma descrição" })
+                </div>
+            </div>
+            <div class="row">
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </div>
+        </div>
+    }
+</div>
